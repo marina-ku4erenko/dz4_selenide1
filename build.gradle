@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+// указываем, что будем использовать 11 версию java
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(11)
+    }
+}
+
+dependencies {
+
+    // selenide
+    testImplementation("com.codeborne:selenide:5.25.1")
+    testRuntimeOnly("org.slf4j:slf4j-simple:1.7.32")
+
+    // JUnit5
+    testImplementation("org.junit.jupiter:junit-jupiter:5.8.1")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.8.1")
+
+}
+
+test {
+    useJUnitPlatform()
+}
